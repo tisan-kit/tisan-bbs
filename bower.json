@@ -1,0 +1,22 @@
+{
+  "name": "tisan-bbs",
+  "description": "tisan bbs for discussion.",
+  "main": "app.js",
+  "authors": [
+    "bugall <bugall@sina.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/tisan-kit/tisan-bbs",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5"
+  }
+}
