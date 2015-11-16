@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tisan - 问答分享社区</title>
+<link href="/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/components/editor.md/css/editormd.css" />
+<link rel="stylesheet" href="/publish/publish.css" />
+</head>
+<body>
+    <div class="container" style="margin-top:0px;height:100%">
+        <div class="form-group"></div>
+        <div class="form-group">
+            <input id="myTitle" type="text" name="title" autocomplete="off" class="form-control input-lg" placeholder="标题：一句话说清问题，用问号结尾" value="">
+        </div>
+        <div class="form-group">
+            <input id="myTag" class="form-control" data-init="null" name="tags" type="text" placeholder="标签，如：php" data-role="tagsinput">
+        </div>
+        <div id="editor" style="height:20%;!important;">
+        </div>
+        <div class="form-group text-center">
+            <button class="btn btn-info publish-btn">发表问题</button>
+        </div>
+    </div>
+</body>
+<script src="/components/jquery/dist/jquery.min.js"></script>
+<script src="/components/editor.md/editormd.js"></script>
+<script src="/publish/publish.js"></script>
+</html>
