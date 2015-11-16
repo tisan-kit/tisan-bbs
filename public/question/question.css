@@ -3,6 +3,7 @@
 }
 .question_list{
 	margin: 0;
+	height:85px;
 	border-bottom: 1px solid #eee;
 }
 .question_list section{
@@ -15,6 +16,7 @@
 	text-align: center;
 	line-height: 1.2;
 	color: #666;
+	margin-top:15px;
 }
 .question_list .left-content small{
 	display: block;
@@ -23,6 +25,7 @@
 .question_list .right-content{
 	overflow: auto;
 	overflow-x: hidden;
+	float:left;
 }
 .question_list .left-content .vote,.answer,.view{
 	display: inline-block;
@@ -80,8 +83,32 @@
 	border-radius:3px;
 	background-color:rgb(139, 203, 243);
 	color:#fff;
-	padding:2px 3px;
+	padding:2px 5px;
 	margin:0px 2px;
 	cursor:pointer;
+	font-size:11px;
+}
+.support-content .person-info{
+}
+.support-content ul li{
+	margin-top:5px;
+	color:#999;
+}
+.support-content ul li:hover{
+	color:#286090;
+	cursor:pointer;
+}
+.question_list .last-answer{
+	height:83px;
+	float:right;
+	width:80px;
+	text-align:center;
+	font-size:12.5px;
+}
+.question_list .last-answer ul{
+	margin-top:18px;
+}
+.question_list .last-answer img{
+	border-radius:5px;
 }
 
