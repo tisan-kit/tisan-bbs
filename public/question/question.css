@@ -8,6 +8,7 @@ body{
 	margin: 0;
 	height:55px;
 	border-bottom: 1px solid #eee;
+	padding:0px 15px;
 }
 .question_list section{
 	display:block;
@@ -136,12 +137,14 @@ body{
 	margin:0px 5px;
 	font-size:14px;
 }
-.question-list-header{}
+.question-list-header{
+}
 .person-list-header .titel{
 	font-size:13px;
 }
 .show-area{
 	background-color:#fff;
+	padding:0px;
 }
 .splice-page-content{
 	text-align:center;
