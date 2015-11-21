@@ -1,4 +1,4 @@
-module.exports={
+{
   msg:'这是线上配置',
   listen_port : 8000,
   redis:{
@@ -11,6 +11,6 @@ module.exports={
     user : 'root',
     password : 'pando',
     database : 'questions',
-    port: '10000',
+    port: '10000'
   }
 }

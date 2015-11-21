@@ -7,7 +7,8 @@ var Question = DbSequelize.define("tbl_question_list",{
   "author_id": { type: Sequelize.INTEGER(11)},
   "answer_id_list": { type: Sequelize.INTEGER(11)},
   "label_id_list": { type: Sequelize.INTEGER(11)},
-  "question_title": { type: Sequelize.INTEGER(11)},
+  "title": { type: Sequelize.CHAR(500)},
+  "content": { type: Sequelize.CHAR(5000)},
   "create_time": { type: Sequelize.INTEGER(11)},
 },{
   timestamps: false,

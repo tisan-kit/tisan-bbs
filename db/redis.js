@@ -1,5 +1,5 @@
 var redis = require('redis');
-var config = require('../config/deploy').redis;
+var config = require('../config/index').redis;
 
 //TODO 连接数量控制
 exports.init=function(address){

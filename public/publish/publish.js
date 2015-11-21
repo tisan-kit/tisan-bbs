@@ -3,11 +3,11 @@
         width           : "100%",
         height          : "70%",
         path            : "../components/editor.md/lib/",
-        htmlDecode      : "style,script,iframe", 
+        htmlDecode      : "style,script,iframe",
         tex             : true,
         emoji           : true,
         taskList        : true,
-        flowChart       : true, 
+        flowChart       : true,
         sequenceDiagram : true
     });
 

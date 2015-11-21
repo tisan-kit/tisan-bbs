@@ -1,5 +1,5 @@
 var Sequelize = require("sequelize");
-var config = require("../config/deploy").mysql;
+var config = require("../config/index").mysql;
 
 console.log(config);
 

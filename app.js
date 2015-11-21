@@ -26,8 +26,8 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-var redis = require('./db/redis').init(),
-    config = require('./config/deploy');
+//var redis = require('./db/redis').init(),
+  var   config = require('./config/index');
 
 app.use(ExpressSession({
   resave: false,
