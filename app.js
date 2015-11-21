@@ -5,8 +5,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var ExpressSession = require('express-session');
+var RedisStore = require('connect-redis')(ExpressSession);
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
+
+var db = require('./models/mysql/index');
 
 var app = express();
 
@@ -20,6 +25,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+//var redis = require('./db/redis').init(),
+  var   config = require('./config/index');
+
+app.use(ExpressSession({
+  resave: false,
+  saveUninitialized: true,
+  store: new RedisStore({host:config.redis.host,port:config.redis.port}),
+  rolling: true,
+  secret: 'disan-2015',
+  cookie: {
+    maxAge: 1000*60*60*24*7
+  }   
+}));
 
 app.use('/', require('./routes/question'));
 app.use('/users', users);
@@ -54,6 +73,5 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
 
 module.exports = app;
