@@ -1,0 +1,25 @@
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tisan - 问答分享社区</title>
+  <link href="/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container" style="margin-top:20px">
+  </div>
+</body>
+
+<script type="text/template" id="question-list">
+  <div>
+    <input id="todo_complate" id="item-template" type="checkbox" <#=completed ? 'checked="checked"' : ''#>>
+    <#=title#>
+  </div>
+</script>
+
+<script src="/components/jquery/dist/jquery.min.js"></script>
+<script src="/components/underscore/underscore.js"></script>
+<script src="/components/backbone/backbone-min.js"></script>
+<script src="/question/question_back.js"></script>
+</html>
