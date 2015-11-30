@@ -70,7 +70,7 @@
         <div class="right-content">
             <div class="author"><span><#=question[i].author#></span> <span>·</span> <span><#=question[i].time#></span>
             </div>
-        <div class="title"> <a><#=question[i].titel#><a> </div>
+        <div class="title" data-id="<#=question[i].id#>"> <a href="/question/<#=question[i].id#>"><#=question[i].title#><a> </div>
         <!--<div class="label-list">
                 <ul> <li>javascript</li> <li>jquery</li> <li>mysql</li> </ul>
             </div>!-->
@@ -88,5 +88,7 @@
 <script src="/components/jquery/dist/jquery.min.js"></script>
 <script src="/components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/components/underscore/underscore.js"></script>
+<script src="/components/backbone/backbone-min.js"></script>
 <script src="/question/question.js"></script>
+<script src="/question/question_back.js"></script>
 </html>

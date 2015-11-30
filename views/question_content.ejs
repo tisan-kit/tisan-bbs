@@ -4,90 +4,76 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tisan - 问答分享社区</title>
+<title>Tisan - 分享社区</title>
 <link href="/components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="/question/question.css" rel="stylesheet">
 <link href="/question_content/question_content.css" rel="stylesheet">
 </head>
 <body>
-<div class="container" style="margin-top:20px">
+<div data-id="<%=question_id%>" class="container" style="margin-top:20px">
     <div class="row">
-        <div class="col-xs-4">
+        <div id="content" class="col-xs-10 col-xs-offset-1">
+            
         </div>
-    </div>
-    <div class="row" style="">
-        <div class="col-xs-7 col-xs-offset-1 show-area">
-            <div class="question-list-header">
-                <a href="/?tab=all" class="topic-tab current-tab">全部</a>
-                <a href="/?tab=all" class="topic-tab current-tab">未回答</a>
-                <a href="/?tab=all" class="topic-tab current-tab">推荐文章</a>
-            </div>
-            <div class="question_content">
-            </div>
-            <div class="splice-page-content">
-                <ul class="pagination">
-                    <li>
-                    <a href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                    </li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li>
-                    <a href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-xs-4">
-            <%include navigation.ejs%>
-            <div class="show-area publish-question-content">
-                <button class="btn btn-primary make-question-btn">我要提问</button>
-            </div>
-        </div>
-        <div class="col-xs-1">
+        <div class='panel'>
+            <div class="replay-content"></div>
         </div>
     </div>
 </div>
 </body>
-<script type="text/template" id="question-list">
-<#for(var i in question){#>
-    <section class="question_list">
-        <div class="left-content">
-            <div class="vote"><#=question[i].vote#>
-                <small>投票</small>
-            </div>
-            <div class="answer"><#=question[i].answer#>
-                <small>答案</small>
-            </div>
-            <div class="view"><#=question[i].view#><small>浏览</small>
+
+<script type="text/template" id="question-content">
+<div class='panel'>
+    <div class='header topic_header'>
+        <span class="topic_full_title"><#=title#></span>
+        <div class="changes">
+            <span><#=time#></span>
+            <span> 作者 <a href="/user/echoloyuk"><#=author_name#></a> </span>
+            <span><#=view_times#></span>
+        </div>
+    </div>
+    <div class='inner topic'>
+        <div class='topic_content'>
+            <div class="markdown-text">
+                <#=content#>
             </div>
         </div>
-        <div class="right-content">
-            <div class="author"><span><#=question[i].author#></span> <span>·</span> <span><#=question[i].time#></span>
+    </div>
+</div>
+</script>
+
+<script type="text/template" id="question-reply-subject">
+    <div class='header'> <span class='col_fade'><#=reply_sum#>回复</span> </div>
+</script>
+
+<script type="text/template" id="question-reply">
+<div class='cell reply_area reply_item ' id="reply1" reply_id="564e78341986c7df7e92b0ae" reply_to_id="">
+    <a class="anchor" id="564e78341986c7df7e92b0ae"></a>
+        <div class='author_content'>
+            <a href="/user/CarlosRen" class="user_avatar">
+                <img src="https://avatars.githubusercontent.com/u/6012322?v=3&amp;s=120" title="CarlosRen"/>
+            </a>
+            <div class='user_info'>
+                <a class='dark reply_author' href="/user/CarlosRen"><#=username#></a>
+                <a class="reply_time" href="#564e78341986c7df7e92b0ae"><#=no_floor#>楼•<#=reply_time#></a>
             </div>
-        <div class="title"> <a><#=question[i].titel#><a> </div>
-        <!--<div class="label-list">
-                <ul> <li>javascript</li> <li>jquery</li> <li>mysql</li> </ul>
-            </div>!-->
+            <div class='user_action'>
+                <span> <i class="fa up_btn fa-thumbs-o-up invisible" title="喜欢"></i> <span class="up-count"> </span> </span>
+                <span> </span>
+            </div>
         </div>
-        <div class="last-answer">
-            <ul class="list-unstyled">
-                <li>
-                    <img height=35; width=35; src="<#=question[i].avatar#>">
-                </li>
-            </ul>
+        <div class='reply_content from-CarlosRen'>
+            <div class="markdown-text"><p><#=reply_content#></p> </div>
         </div>
-    </section>
-<#}#>
+        <div class='clearfix'>
+            <div class='reply2_area'> </div>
+        </div>
+    </div>
+    <div class="col-xs-1"></div>
+</div>
 </script>
 <script src="/components/jquery/dist/jquery.min.js"></script>
 <script src="/components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/components/underscore/underscore.js"></script>
-<script src="/question/question.js"></script>
+<script src="/question_content/question_content.js"></script>
 </html>

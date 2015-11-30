@@ -1,38 +1,53 @@
 (function(){
-    function question(){
-        this._questionInfo=[];
-    }
-    question.prototype.getInfo=function(){
-        $.ajax({
-            url:'/question/info',
-            type:'GET',
-            success:function(questionInfo){
-                this._questionInfo=questionInfo.data
-            }
-        })
-    }
-    question.prototype.showInfo=function(questionItemInfo){
-        $
-    }
     _.templateSettings = {
         evaluate    : /<#([\s\S]+?)#>/g,
         interpolate : /<#=([\s\S]+?)#>/g,
         escape      : /<#-([\s\S]+?)#>/g
     };
-    var tmp={
-        vote:3,
-        answer:5,
-        view:103,
-        author:'bugall',
-        time:'1分钟前',
-        titel:'这个问题怎么解决',
-        avatar:'/img/bugall.png'
+    question.prototype.getInfo=function(callback){
+        var self=this;
+        $.ajax({
+            url:'/question/list',
+            type:'GET',
+            success:function(questionInfo){
+                self._questionInfo=questionInfo.data
+                if(0!=questionInfo.code){
+                    callback(questionInfo.msg,'');
+                }else{
+                    callback('',questionInfo.data.questionInfo);
+                }
+            },error:function(err){
+                callback(err,'');
+            }
+        })
     }
-    var data=[];
-    for(var i=0;i<=20;i++){
-        data.push(tmp);
+    question.prototype.showInfo=function(questionItemInfo){
+        var showData = [];
+        for(var i in questionItemInfo){
+            showData.push({
+                vote:3,
+                answer:5,
+                view:103,
+                id:questionItemInfo[i].id,
+                author:'bugall',
+                time:questionItemInfo[i].create_time,
+                title:questionItemInfo[i].title,
+                avatar:questionItemInfo[i].avatar
+            })
+        }
+        $('.question_content').append(_.template($('#question-list').html())({question:showData}));
     }
-    $('.question_content').append(_.template($('#question-list').html())({question:data}));
+    var questionObj = new question();
+    questionObj.getInfo(function(err,result){
+        if(!!err){
+            console.log(err);
+        }else{
+            questionObj.showInfo(result);
+        }
+    })
+    function question(){
+        this._questionInfo=[];
+    }
     $('.make-question-btn').on('click',function(){
         window.location.href="/publish";
     })

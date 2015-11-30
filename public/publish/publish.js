@@ -8,7 +8,8 @@
         emoji           : true,
         taskList        : true,
         flowChart       : true,
-        sequenceDiagram : true
+        sequenceDiagram : true,
+        saveHTMLToTextarea :  true,
     });
 
     function sendData(option){
@@ -17,7 +18,7 @@
         var tmp = {
             title:$('#myTitle').val(),
             tags:$('#myTag').val(),
-            content:testEditor.getMarkdown()
+            content:testEditor.getHTML()
         }
         $.ajax({
             url:'/publish',
